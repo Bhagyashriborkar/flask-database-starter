@@ -26,6 +26,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Course</th>
+              
             </tr>
             {% for student in students %}
             <tr>
@@ -33,6 +34,8 @@
                 <td>{{ student['name'] }}</td>
                 <td>{{ student['email'] }}</td>
                 <td>{{ student['course'] }}</td>
+                
+               
             </tr>
             {% endfor %}
         </table>

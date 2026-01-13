@@ -40,6 +40,7 @@ def init_db():
             name TEXT NOT NULL,
             email TEXT NOT NULL,
             course TEXT NOT NULL
+            
         )
     ''')  # SQL command to create table with 4 columns
     conn.commit()  # Save changes to database
@@ -61,15 +62,21 @@ def index():
 
 @app.route('/add')
 def add_sample_student():
-    """Add a sample student to database (for testing)"""
+    """Add multiple sample students to the database (for testing)"""
     conn = get_db_connection()
-    conn.execute(
+    conn.executemany(
         'INSERT INTO students (name, email, course) VALUES (?, ?, ?)',
-        ('John Doe', 'john@example.com', 'Python')  # ? are placeholders (safe from SQL injection)
+        [
+            ('John Doe', 'john@example.com', 'Python'),
+            ('aniket','aniket@example.com', 'Java'),
+            ('alice', 'alice@example.com', 'JavaScript'),
+        ]
     )
-    conn.commit()  # Don't forget to commit!
+    conn.commit()
     conn.close()
-    return 'Student added! <a href="/">Go back to home</a>'
+    return 'Students added! <a href="/">Go back to home</a>'
+
+ 
 
 
 if __name__ == '__main__':
