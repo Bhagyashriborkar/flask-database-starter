@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Edit Teacher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+<body class="container mt-4">
+    <h1>Edit Teacher</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name *</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ teacher.name }}" required />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ teacher.email }}" required />
+        </div>
+        <div class="mb-3">
+            <label for="subject_specialty" class="form-label">Subject Specialty</label>
+            <input type="text" class="form-control" id="subject_specialty" name="subject_specialty" value="{{ teacher.subject_specialty }}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update Teacher</button>
+        <a href="{{ url_for('teachers') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
