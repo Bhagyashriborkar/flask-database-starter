@@ -107,7 +107,7 @@ def edit_student(id):
         student.email = request.form['email']
         student.course_id = request.form['course_id']
 
-        db.session.commit()
+        db.session.commit() 
         flash('Student updated!', 'success')
         return redirect(url_for('index'))
 
