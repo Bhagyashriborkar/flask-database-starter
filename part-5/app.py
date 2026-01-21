@@ -23,6 +23,12 @@ from dotenv import load_dotenv  # Load .env file
 load_dotenv()
 
 app = Flask(__name__)
+
+
+
+
+
+
 app.secret_key = os.getenv('SECRET_KEY', 'fallback-secret-key')  # Get from env or use fallback
 
 # =============================================================================
